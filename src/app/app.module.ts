@@ -4,10 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { GameScreenComponent } from './game-screen/game-screen.component';
+import { HexGridComponent } from './hex-grid/hex-grid.component';
+import { HexTileComponent } from './hex-tile/hex-tile.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GameScreenComponent,
+    HexGridComponent,
+    HexTileComponent
   ],
   imports: [
     BrowserModule,

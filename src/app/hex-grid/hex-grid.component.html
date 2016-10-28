@@ -1,0 +1,33 @@
+
+
+
+<!--   WORKING WITH JUST REGULAR DIVS -->
+<!--
+<div>
+	<div class="hex-row" *ngFor="let row of rows;let i = index; trackBy: trackRow">
+		<div *ngFor="let col of columns; let i = index" class="hex" [ngClass]="{'even': (i+1) % 2 == 0}">
+			<div class="left"></div><div class="middle"></div><div class="right">
+		</div>
+	</div>
+</div>
+-->
+
+<!-- WORKING WITH COMPONENT -->
+<!--<div>
+	<div class="hex-row" *ngFor="let row of rows;let i = index; trackBy: trackRow">
+		<app-hex-tile *ngFor="let col of columns; let x = index" [row]="i" [column]="x" [color]="hexColor"></app-hex-tile>			
+	</div>
+</div>-->
+
+
+<!-- WORKING WITH MATRIX -->
+<div>
+	<div class="hex-row" *ngFor="let col of matrix; let i = index; trackBy: trackRow">
+		<app-hex-tile *ngFor="let row of col; let x = index" 
+			[row]="row.y" 
+			[column]="row.x" 
+			[color]="row.color"
+			[sideWidth]="sideWidth"
+			[topBottomWidth]="topBottomWidth"></app-hex-tile>
+	</div>
+</div>
