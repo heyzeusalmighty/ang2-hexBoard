@@ -49,9 +49,12 @@
 
 
 
-<div class="hex" [style.margin-top]="marginTopString" (click)="hexClick()">	
+<div class="hex" 
+	[style.margin-top]="marginTopString"
+	[style.margin-right]="negMarginRight"
+	[style.margin-bottom]="negMarginBottom"
+	 (click)="hexClick()">	
 	<div class="left"
-
 		[style.border-right-color]="color"
 		[style.border-right-width]="sideWidthString"
 		[style.border-top-width]="topBottomString"

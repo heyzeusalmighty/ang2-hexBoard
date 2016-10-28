@@ -16,6 +16,8 @@ export class HexTileComponent implements OnInit {
 	sideWidthString: string;
 	topBottomString: string;
 	marginTopString: string;
+	negMarginRight: string;
+	negMarginBottom: string;
 	middleWidth = '60px';
 	middleHeight = '104px';
 
@@ -29,6 +31,11 @@ export class HexTileComponent implements OnInit {
 		this.marginTopString = ((this.column + 1) % 2 === 0)
 			? (this.topBottomWidth + 1) + 'px'
 			: '0px';
+
+		this.negMarginRight = '-' + (this.sideWidth * 0.85) + 'px';
+		this.negMarginBottom = '-' + (this.topBottomWidth * 0.95) + 'px';
+		this.middleWidth = (this.sideWidth * 2) + 'px';
+		this.middleHeight = (this.topBottomWidth * 2) + 'px';
 	}
 
 

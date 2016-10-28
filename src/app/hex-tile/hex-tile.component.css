@@ -1,7 +1,7 @@
 .hex {
     float: left;
-    margin-right: -26px;
-    margin-bottom: -50px;
+    /*margin-right: -26px;
+    margin-bottom: -50px;*/
 }
 .hex .left {
     float: left;
@@ -40,5 +40,5 @@
     clear: left;
 }
 .hex.even {
-    margin-top: 52px;
+    margin-top: 53px;
 }

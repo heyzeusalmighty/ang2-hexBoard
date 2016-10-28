@@ -17,6 +17,7 @@ export class HexGridComponent implements OnInit {
 	hexColor = '#6C6';
 	gameTiles: Array<GameTile>;
 	matrix: Array<any>;
+	// 1300 pixels
 	sideWidth: number = 30;
 	topBottomWidth: number = 52;
 
@@ -25,6 +26,7 @@ export class HexGridComponent implements OnInit {
 	constructor(private gameService: GameService) { }
 
 	ngOnInit() {
+		this.calculateScreenSize();
 		this.getStartingData();
 	}
 
@@ -50,6 +52,27 @@ export class HexGridComponent implements OnInit {
 		this.gameTiles.forEach(tile => {
 			this.matrix[tile.yCoord][tile.xCoord].color = tile.color;
 		});
+	}
+
+	calculateScreenSize() {
+		let width = window.innerWidth;
+
+		if (width >= 1300) {
+			this.sideWidth = 30;
+			this.topBottomWidth = 52;
+		} else {
+			let ratio = width / 1300;
+			this.sideWidth = 30 * ratio;
+			this.topBottomWidth = 52 * ratio;
+		}
+		// } else if (width >= 800) {
+		// 	this.sideWidth = 18.5;
+		// 	this.topBottomWidth = 32;
+		// } else if (width < 500) {
+		// 	this.sideWidth = 8.64;
+		// 	this.topBottomWidth = 15;
+		// }
+
 	}
 
 }
