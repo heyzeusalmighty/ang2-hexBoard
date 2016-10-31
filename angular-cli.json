@@ -5,7 +5,7 @@
   },
   "apps": [
     {
-      "root": "src",
+      "root": "./src/client",
       "outDir": "dist",
       "assets": "assets",
       "index": "index.html",
@@ -16,7 +16,7 @@
       "mobile": false,
       "styles": [
         "styles.css",
-        "../node_modules/material-design-lite/material.css"
+        "../../node_modules/material-design-lite/material.css"
       ],
       "scripts": [],
       "environments": {
