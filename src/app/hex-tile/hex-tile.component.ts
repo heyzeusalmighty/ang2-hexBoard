@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
+import { GameTile } from '../models/gameTile';
 
 @Component({
 	selector: 'app-hex-tile',
@@ -7,11 +9,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HexTileComponent implements OnInit {
 
-	@Input() row: number;
-	@Input() column: number;
-	@Input() color: string;
+	@Input() tile: GameTile;
 	@Input() sideWidth: number;
 	@Input() topBottomWidth: number;
+	@Output() hexSelected = new EventEmitter();
 	
 	sideWidthString: string;
 	topBottomString: string;
@@ -28,7 +29,7 @@ export class HexTileComponent implements OnInit {
 		this.sideWidthString = this.sideWidth + 'px';
 		this.topBottomString = this.topBottomWidth + 'px';
 		// This is for calculating even rows
-		this.marginTopString = ((this.column + 1) % 2 === 0)
+		this.marginTopString = ((this.tile.xCoord + 1) % 2 === 0)
 			? (this.topBottomWidth + 1) + 'px'
 			: '0px';
 
@@ -41,7 +42,8 @@ export class HexTileComponent implements OnInit {
 
 
 	hexClick() {
-		console.log('I got clicked :: column ', this.column, ' :: row ', this.row, ' :: color ', this.color);
+		this.hexSelected.emit({ value: this.tile.color });
+		console.log('I got clicked :: column ', this.tile.yCoord, ' :: row ', this.tile.xCoord, ' :: color ', this.tile.color);
 	}
 
 

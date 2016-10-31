@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { GameScreenComponent } from './game-screen/game-screen.component';
 import { HexGridComponent } from './hex-grid/hex-grid.component';
 import { HexTileComponent } from './hex-tile/hex-tile.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameScreenComponent,
     HexGridComponent,
-    HexTileComponent
+    HexTileComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

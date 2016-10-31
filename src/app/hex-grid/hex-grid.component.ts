@@ -20,6 +20,8 @@ export class HexGridComponent implements OnInit {
 	// 1300 pixels
 	sideWidth: number = 30;
 	topBottomWidth: number = 52;
+	selectedHex: string;
+	showGrid: boolean = true;
 
 
 
@@ -42,9 +44,9 @@ export class HexGridComponent implements OnInit {
 	buildArray() {
 		this.matrix = [];
 		for ( let row = 0; row < this.rowCount; row++) {
-			let wholeRow = [];
+			let wholeRow = new Array<GameTile>();
 			for (let col = 0; col < this.columnCount; col++ ) {
-				wholeRow.push({ x: col, y: row, color: '#6C6' });
+				wholeRow.push({ xCoord: col, yCoord: row, color: '#6C6' });
 			}
 			this.matrix.push(wholeRow);
 		}
@@ -65,14 +67,12 @@ export class HexGridComponent implements OnInit {
 			this.sideWidth = 30 * ratio;
 			this.topBottomWidth = 52 * ratio;
 		}
-		// } else if (width >= 800) {
-		// 	this.sideWidth = 18.5;
-		// 	this.topBottomWidth = 32;
-		// } else if (width < 500) {
-		// 	this.sideWidth = 8.64;
-		// 	this.topBottomWidth = 15;
-		// }
+	}
 
+	hexSelected($event) {
+		console.log('event', $event);
+		this.selectedHex = $event.value;
+		this.showGrid = false;
 	}
 
 }
