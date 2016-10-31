@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { GameTile } from '../models/gameTile';
-import { GameService } from '../game.service';
+import { GameService } from '../services/game.service';
 
 @Component({
 	selector: 'app-hex-grid',

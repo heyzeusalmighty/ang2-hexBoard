@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GameTile } from './models/gameTile';
+import { GameTile } from '../models/gameTile';
 
 @Injectable()
 export class GameService {
