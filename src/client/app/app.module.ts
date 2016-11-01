@@ -17,25 +17,26 @@ import { PlayerBarComponent } from './player-bar/player-bar.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    GameScreenComponent,
-    HexGridComponent,
-    HexTileComponent,
-    HeaderComponent,
-    PlayerBarComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    MdButtonModule.forRoot(),
+	declarations: [
+		AppComponent,
+		GameScreenComponent,
+		HexGridComponent,
+		HexTileComponent,
+		HeaderComponent,
+		PlayerBarComponent
+	],
+	imports: [
+		BrowserModule,
+		FormsModule,
+		HttpModule,
+		MdButtonModule.forRoot(),
 		MdCardModule.forRoot(),
 		MdTabsModule.forRoot(),
 		MdInputModule.forRoot(),
-		MdListModule.forRoot()
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+		MdListModule.forRoot(),
+		
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
