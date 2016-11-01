@@ -1,10 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+
+import 'rxjs/add/operator/toPromise';
+
 import { GameTile } from '../models/gameTile';
 
 @Injectable()
 export class GameService {
 
-	constructor() { }
+	private playerUrl = 'http://localhost:3000/api/player';
+
+
+	constructor(private http: Http) { }
 
 	getTiles(): Array<GameTile> {
 		return [
@@ -44,6 +51,18 @@ export class GameService {
 				color: 'coral'
 			}
 		];
+	}
+
+	getPlayerData() {
+		console.log('getting player data');
+
+		let headers		= new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+		let options		= new RequestOptions({ headers: headers }); // Create a request option
+
+		return this.http.get(this.playerUrl, options)
+			// .toPromise()
+			// .then(res => res.json());
+			.map((res: Response) => res.json());
 	}
 
 }

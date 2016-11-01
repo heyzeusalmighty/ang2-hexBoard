@@ -23,6 +23,8 @@ export class HexGridComponent implements OnInit {
 	selectedHex: string;
 	showGrid: boolean = true;
 
+	playerData: any;
+
 
 
 	constructor(private gameService: GameService) { }
@@ -35,6 +37,10 @@ export class HexGridComponent implements OnInit {
 	getStartingData() {
 		this.gameTiles = this.gameService.getTiles();
 		this.buildArray();
+		this.gameService.getPlayerData()
+			.subscribe(
+				data => this.playerData = data
+			)
 	}
 
 	trackRow(index: number): number {
