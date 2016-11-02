@@ -1,0 +1,41 @@
+
+.discContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.actionDisc {
+    width: 40px;
+    height: 40px;    
+    margin: 2px;
+    border-radius: 20px;    
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    /*-webkit-text-stroke: 1px black;*/
+    color: white;
+   /*text-shadow:
+       -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  */
+}
+
+.availableDisc {
+    background: orangered;
+}
+
+.usedDisc {
+    background: aquamarine;
+}
+
+.moneyContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.moneyBox {
+    width: 10px;
+    border: 1px solid black;
+}

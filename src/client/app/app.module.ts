@@ -18,6 +18,7 @@ import { HeaderComponent } from './header/header.component';
 import { PlayerBarComponent } from './player-bar/player-bar.component';
 import { playerReducer } from './reducers/player.reducer';
 import { PlayerEffectsService } from './services/player-effects.service';
+import { MoneyBoxComponent } from './money-box/money-box.component';
 
 const appReducers: any = {
 	player: playerReducer
@@ -30,7 +31,8 @@ const appReducers: any = {
 		HexGridComponent,
 		HexTileComponent,
 		HeaderComponent,
-		PlayerBarComponent
+		PlayerBarComponent,
+		MoneyBoxComponent
 	],
 	imports: [
 		BrowserModule,

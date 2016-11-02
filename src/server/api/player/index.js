@@ -13,6 +13,10 @@ module.exports = router;
 
 function getPlayerData(req, res) {
     let playerId = req.params.id;
+
+	// setTimeout(() => {
+	// 	res.send(response);
+	// }, 5000);
     res.send(response);
 }
 
@@ -38,7 +42,7 @@ const response = {
 		"pass": false,
 		"turnOrder": 1,
 		"totalDiscs": 13,
-		"availableDiscs": 13,
+		"availableDiscs": 9,
 		"availableColonyShips": 3,
 		"passOrder": 0,
 		"whosTurn": true,

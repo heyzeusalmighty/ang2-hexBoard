@@ -2,7 +2,7 @@
 
 
 <div class="mdl-grid">
-	<div class="mdl-cell mdl-cell--6-col">
+	<div class="mdl-cell mdl-cell--5-col">
 		<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
 			EXP
 		</button>
@@ -22,13 +22,43 @@
 			MOV
 		</button>
 	</div>
-	<div class="mdl-cell mdl-cell--6-col" *ngIf="playerData">
-		{{playerData | json}}
+	<div class="mdl-cell mdl-cell--7-col discContainer" *ngIf="playerData">
+		<!--{{playerData | json}}-->
 		<!--put a bunch of circles here-->
 		
-		<div *ngFor="let disc of totalDiscs" class="actionDisc">
-			c
+		<!--<div *ngFor="let disc of availableDiscs" class="actionDisc availableDisc">
+			{{disc.number}}
 		</div>
 
+		<div *ngFor="let disc of usedDiscs" class="actionDisc usedDisc">
+			{{ disc.number }}
+		</div>-->	
+
+		<div *ngFor="let disc of totalDiscs" class="actionDisc" [ngClass]="{'availableDisc' : disc.available, 'usedDisc': !disc.available }" >
+			{{ disc.number }}
+		</div>
+
+	</div>
+
+
+	<div class="mdl-cell mdl-cell--3-col moneyContainer">
+		income
+		<money-box colorClass="gl_orange" [amount]="3"></money-box>
+		<money-box colorClass="gl_pink" [amount]="3"></money-box>
+		<money-box colorClass="gl_brown" [amount]="3"></money-box>
+
+		<!--<div class="gl_orange moneyBox"></div>
+		<div class="gl_pink moneyBox"></div>
+		<div class="gl_brown moneyBox"></div>-->
+
+	</div>
+	<div class="mdl-cell mdl-cell--3-col">
+		current
+	</div>
+	<div class="mdl-cell mdl-cell--3-col">
+		tiles left
+	</div>
+	<div class="mdl-cell mdl-cell--3-col">
+		colony ships
 	</div>
 </div>

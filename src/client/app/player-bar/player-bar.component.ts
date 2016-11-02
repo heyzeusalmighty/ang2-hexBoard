@@ -14,7 +14,9 @@ export class PlayerBarComponent implements OnInit {
 	playerStore: Observable<any>;
 	playerData: Observable<PlayerModel> = null;
 	status: Observable<any>;
-	totalDiscs: Array<any>;
+	totalDiscs: Array<any> = [];
+	// usedDiscs: Array<any> = [];
+	// availableDiscs: Array<any> = [];
 
 
 	constructor(private gameService: GameService) { }
@@ -23,13 +25,23 @@ export class PlayerBarComponent implements OnInit {
 		this.getPlayerData();
 	}
 
-	
 	getPlayerData() {
 		this.playerStore = this.gameService.getPlayerStore();
 		this.playerStore.subscribe(data => {
 			this.playerData = data.currentPlayer;
 			this.status = data.status;
-			this.totalDiscs = new Array(data.currentPlayer.availableDiscs);
+
+			if (data.currentPlayer && data.currentPlayer.availableDiscs) {
+				// this.totalDiscs = new Array(data.currentPlayer.availableDiscs);
+				this.totalDiscs = [];
+				let usedDiscs = data.currentPlayer.totalDiscs - data.currentPlayer.availableDiscs;
+				let total = data.currentPlayer.totalDiscs;
+
+				for (let i = total; i >= 1; i--) {
+					this.totalDiscs.push({ number: i, available: (i <= usedDiscs )});
+				}
+
+			}
 		});
 	}
 
