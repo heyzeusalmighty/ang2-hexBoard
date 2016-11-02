@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 
 import { GameTile } from '../models/gameTile';
 import { GameService } from '../services/game.service';
@@ -23,7 +24,9 @@ export class HexGridComponent implements OnInit {
 	selectedHex: string;
 	showGrid: boolean = true;
 
-	playerData: any;
+	playerStore: Observable<any>;
+	playerData: Observable<any>;
+
 
 
 
@@ -37,10 +40,17 @@ export class HexGridComponent implements OnInit {
 	getStartingData() {
 		this.gameTiles = this.gameService.getTiles();
 		this.buildArray();
-		this.gameService.getPlayerData()
-			.subscribe(
-				data => this.playerData = data
-			)
+		this.playerStore = this.gameService.getPlayerStore();
+		this.playerStore.subscribe(data => {
+			this.playerData = data;
+		});
+
+
+
+		// this.gameService.getPlayerData()
+		// 	.subscribe(
+		// 		data => this.playerData = data
+		// 	)
 	}
 
 	trackRow(index: number): number {

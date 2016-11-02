@@ -1,6 +1,4 @@
-<p>
-  player-bar works!
-</p>
+
 
 
 <div class="mdl-grid">
@@ -24,10 +22,13 @@
 			MOV
 		</button>
 	</div>
-	<div class="mdl-cell mdl-cell--3-col">
-		ass clowns
-	</div>
-	<div class="mdl-cell mdl-cell--3-col">
-		dudes
+	<div class="mdl-cell mdl-cell--6-col" *ngIf="playerData">
+		{{playerData | json}}
+		<!--put a bunch of circles here-->
+		
+		<div *ngFor="let disc of totalDiscs" class="actionDisc">
+			c
+		</div>
+
 	</div>
 </div>

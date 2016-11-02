@@ -2,7 +2,6 @@
 
 var express = require('express');
 var router = express.Router();
-var controller = require('./player.controller')
 
 //router.get('/:search', controller.index);
 

@@ -1,11 +1,38 @@
+import { ActionReducer, Action } from '@ngrx/store';
+import 'rxjs/add/operator/map';
 
-// import { ActionReducer, Action } from '@ngrx/store';
+import { PlayerModel } from '../models/playerModel';
+
+
+
+export const GET_PLAYER_DATA = 'GET_PLAYER_DATA';
+export const GET_PLAYER_DATA_SUCCESS = 'GET_PLAYER_DATA_SUCCESS';
+export const GET_PLAYER_DATA_FAILED = 'GET_PLAYER_DATA_FAILED'; 
+
+let initialState = new PlayerModel();
+
+export const playerReducer : ActionReducer<PlayerModel> = ( state = initialState, action: Action ) => {
+    switch (action.type) {
+        case GET_PLAYER_DATA_SUCCESS:
+            state = action.payload;
+            return state;
+
+        case GET_PLAYER_DATA_FAILED:
+            console.log('oh crap, player data failed');
+            return state;
+
+        default:
+            return state;
+    }
+}
+
+
 
 // //import { RecipesStoreModel } from '../models/recipeStoreModel';
 
 // //import * as _ from 'lodash';
 
-// import 'rxjs/add/operator/map';
+// 
 
 
 // export const GET_INSTRUCTIONS = 'GET_INSTRUCTIONS';
