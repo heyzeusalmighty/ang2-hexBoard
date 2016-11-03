@@ -1,0 +1,55 @@
+.mdl-layout__drawer {
+	width: 120px;
+}
+
+.mdl-layout__content {
+	margin-left: 120px;
+	overflow-y: hidden;
+}
+
+.dashboard-drawer {
+  border: none;
+}
+
+.dashboard-avatar {
+	width: 48px;
+	height: 48px;
+	border-radius: 24px;
+}
+
+.drawer-header {
+	box-sizing: border-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+			flex-direction: column;
+	-webkit-justify-content: flex-end;
+		-ms-flex-pack: end;
+			justify-content: flex-end;
+	padding: 16px;
+	height: 151px;
+}
+
+.dashboard-avatar-dropdown {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	position: relative;
+	-webkit-flex-direction: row;
+		-ms-flex-direction: row;
+			flex-direction: row;
+	-webkit-align-items: center;
+		-ms-flex-align: center;
+			align-items: center;
+	width: 100%;
+}
+
+.mdl-navigation__link {
+	padding: 16px 10px !important;
+}
+
+[app-hex-grid] {
+	margin-bottom: 20px;
+}

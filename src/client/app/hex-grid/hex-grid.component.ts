@@ -74,15 +74,31 @@ export class HexGridComponent implements OnInit {
 
 	calculateScreenSize() {
 		let width = window.innerWidth;
+		console.log('inner width ', width, (width - 140));
+		// side drawer is 120 plus 16px padding
+		let actualWidth = width - 140;
 
-		if (width >= 1300) {
-			this.sideWidth = 30;
-			this.topBottomWidth = 52;
-		} else {
-			let ratio = width / 1300;
-			this.sideWidth = 30 * ratio;
-			this.topBottomWidth = 52 * ratio;
-		}
+
+		const hexWidth = 30;
+		const hexHeight = 52;
+
+		// let ratio = 0.70;
+		let ratio = actualWidth / 1300;
+		this.sideWidth = hexWidth * ratio;
+		this.topBottomWidth = hexHeight * ratio;
+		
+
+		// if (width >= 1300) {
+		// 	// 30 - 52
+		// 	this.sideWidth = 22.5;
+		// 	this.topBottomWidth = 39;
+		// } else {
+		// 	// let ratio = width / 1300;
+		// 	// this.sideWidth = 30 * ratio;
+		// 	// this.topBottomWidth = 52 * ratio;
+		// 	this.sideWidth = 22.5;
+		// 	this.topBottomWidth = 39;
+		// }
 	}
 
 	hexSelected($event) {

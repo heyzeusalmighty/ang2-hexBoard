@@ -36,6 +36,11 @@
     margin-bottom: 10px;
 }
 
+.moneyContainer span {
+    font-weight: 600;
+    line-height: 30px;    
+}
+
 .moneyBox {
     width: 10px;
     border: 1px solid black;

@@ -7,10 +7,11 @@ import { MdCardModule } from '@angular2-material/card';
 import { MdInputModule } from '@angular2-material/input';
 import { MdListModule } from '@angular2-material/list';
 import { MdTabsModule } from '@angular2-material/tabs';
-import { Store, StoreModule } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { AppComponent } from './app.component';
+import { routing } from './app.routing';
 import { GameScreenComponent } from './game-screen/game-screen.component';
 import { HexGridComponent } from './hex-grid/hex-grid.component';
 import { HexTileComponent } from './hex-tile/hex-tile.component';
@@ -19,6 +20,8 @@ import { PlayerBarComponent } from './player-bar/player-bar.component';
 import { playerReducer } from './reducers/player.reducer';
 import { PlayerEffectsService } from './services/player-effects.service';
 import { MoneyBoxComponent } from './money-box/money-box.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardDrawerComponent } from './dashboard-drawer/dashboard-drawer.component';
 
 const appReducers: any = {
 	player: playerReducer
@@ -32,12 +35,15 @@ const appReducers: any = {
 		HexTileComponent,
 		HeaderComponent,
 		PlayerBarComponent,
-		MoneyBoxComponent
+		MoneyBoxComponent,
+		DashboardComponent,
+		DashboardDrawerComponent
 	],
 	imports: [
 		BrowserModule,
 		FormsModule,
 		HttpModule,
+		routing,
 		MdButtonModule.forRoot(),
 		MdCardModule.forRoot(),
 		MdTabsModule.forRoot(),

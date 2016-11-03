@@ -25,6 +25,7 @@
 
 
 <!-- WORKING WITH MATRIX -->
+<div class="whole-thing">
 <div *ngIf="showGrid">
 	<div class="hex-row" *ngFor="let col of matrix; let i = index; trackBy: trackRow">
 		<app-hex-tile *ngFor="let row of col; let x = index" 
@@ -46,4 +47,5 @@
 	<div>
 		playerData - {{ playerData.currentPlayer | json }}
 	</div>
+</div>
 </div>
