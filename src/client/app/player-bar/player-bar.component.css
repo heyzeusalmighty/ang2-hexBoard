@@ -33,6 +33,7 @@
 .moneyContainer {
     display: flex;
     flex-direction: row;
+    margin-bottom: 10px;
 }
 
 .moneyBox {

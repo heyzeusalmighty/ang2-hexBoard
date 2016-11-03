@@ -23,17 +23,7 @@
 		</button>
 	</div>
 	<div class="mdl-cell mdl-cell--7-col discContainer" *ngIf="playerData">
-		<!--{{playerData | json}}-->
-		<!--put a bunch of circles here-->
 		
-		<!--<div *ngFor="let disc of availableDiscs" class="actionDisc availableDisc">
-			{{disc.number}}
-		</div>
-
-		<div *ngFor="let disc of usedDiscs" class="actionDisc usedDisc">
-			{{ disc.number }}
-		</div>-->	
-
 		<div *ngFor="let disc of totalDiscs" class="actionDisc" [ngClass]="{'availableDisc' : disc.available, 'usedDisc': !disc.available }" >
 			{{ disc.number }}
 		</div>
@@ -41,15 +31,20 @@
 	</div>
 
 
-	<div class="mdl-cell mdl-cell--3-col moneyContainer">
-		income
-		<money-box colorClass="gl_orange" [amount]="3"></money-box>
-		<money-box colorClass="gl_pink" [amount]="3"></money-box>
-		<money-box colorClass="gl_brown" [amount]="3"></money-box>
+	<div class="mdl-cell mdl-cell--3-col">
+		<div class="moneyContainer">
+			income
+			<money-box colorClass="gl_orange" [amount]="3"></money-box>
+			<money-box colorClass="gl_pink" [amount]="3"></money-box>
+			<money-box colorClass="gl_brown" [amount]="3"></money-box>
+		</div>
 
-		<!--<div class="gl_orange moneyBox"></div>
-		<div class="gl_pink moneyBox"></div>
-		<div class="gl_brown moneyBox"></div>-->
+		<div class="moneyContainer">
+			income
+			<money-box colorClass="gl_orange" [amount]="3"></money-box>
+			<money-box colorClass="gl_pink" [amount]="3"></money-box>
+			<money-box colorClass="gl_brown" [amount]="3"></money-box>
+		</div>
 
 	</div>
 	<div class="mdl-cell mdl-cell--3-col">

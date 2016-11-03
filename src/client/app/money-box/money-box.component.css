@@ -1,6 +1,28 @@
 
 .moneyBox {
-    width: 10px;
-    height: 10px;
+    width: 20px !important;
+    height: 20px;
     border: 1px solid black;
+    display: inline-block;
+}
+
+.container {
+    margin-left: 5px;
+    /*display: inline-block;*/
+}
+
+.amount {
+    display: inline-block;
+}
+
+.moneyBox2 {
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    display: inline-block;
+    color: white;
+    font-weight: 800;
+    font-size: 18px;
+    text-align: center;
+    line-height: 25px;
 }
