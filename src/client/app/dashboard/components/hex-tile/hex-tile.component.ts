@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { GameTile } from '../models/gameTile';
+import { GameTile } from '../../models/gameTile';
 
 @Component({
 	selector: 'app-hex-tile',

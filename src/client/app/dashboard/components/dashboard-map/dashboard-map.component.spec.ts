@@ -1,11 +1,11 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async } from '@angular/core/testing';
-import { GameScreenComponent } from './game-screen.component';
+import { DashboardMapComponent } from './dashboard-map.component';
 
-describe('Component: GameScreen', () => {
+describe('Component: DashboardMap', () => {
   it('should create an instance', () => {
-    let component = new GameScreenComponent();
+    let component = new DashboardMapComponent();
     expect(component).toBeTruthy();
   });
 });

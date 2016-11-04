@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
-import { PlayerModel } from '../models/playerModel';
-import { GameService } from '../services/game.service';
+import { PlayerModel } from '../../models/playerModel';
+import { GameService } from '../../services/game.service';
 
 @Component({
 	selector: 'player-bar',

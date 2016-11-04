@@ -7,37 +7,28 @@ import { MdCardModule } from '@angular2-material/card';
 import { MdInputModule } from '@angular2-material/input';
 import { MdListModule } from '@angular2-material/list';
 import { MdTabsModule } from '@angular2-material/tabs';
+import { MdMenuModule } from '@angular2-material/menu';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
-import { GameScreenComponent } from './game-screen/game-screen.component';
-import { HexGridComponent } from './hex-grid/hex-grid.component';
-import { HexTileComponent } from './hex-tile/hex-tile.component';
-import { HeaderComponent } from './header/header.component';
-import { PlayerBarComponent } from './player-bar/player-bar.component';
-import { playerReducer } from './reducers/player.reducer';
-import { PlayerEffectsService } from './services/player-effects.service';
-import { MoneyBoxComponent } from './money-box/money-box.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { DashboardDrawerComponent } from './dashboard-drawer/dashboard-drawer.component';
+// import { DashboardRoutingModule } from './dashboard.routing';
 
-const appReducers: any = {
-	player: playerReducer
-}
+import { HeaderComponent } from './header/header.component';
+
+
+import { DashboardModule } from './dashboard/dashboard.module';
+import { HomeComponent } from './home/home.component';
+// import { DashboardMapComponent } from './dashboard-map/dashboard-map.component';
+
+
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		GameScreenComponent,
-		HexGridComponent,
-		HexTileComponent,
 		HeaderComponent,
-		PlayerBarComponent,
-		MoneyBoxComponent,
-		DashboardComponent,
-		DashboardDrawerComponent
+		HomeComponent,		
 	],
 	imports: [
 		BrowserModule,
@@ -49,8 +40,8 @@ const appReducers: any = {
 		MdTabsModule.forRoot(),
 		MdInputModule.forRoot(),
 		MdListModule.forRoot(),
-		StoreModule.provideStore(appReducers),
-		EffectsModule.run(PlayerEffectsService),
+		MdMenuModule.forRoot(),		
+		DashboardModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

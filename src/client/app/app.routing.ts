@@ -1,23 +1,23 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { GameScreenComponent } from './game-screen/game-screen.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
 
 
 const appRoutes: Routes = [
 
+	// {
+	// 	path: 'dashboard',
+	// 	component: DashboardComponent
+	// },
 	{
-		path: 'dashboard',
-		component: DashboardComponent
-	},
-	{
-		path: 'game',
-		component: GameScreenComponent
+		path: 'home',
+		component: HomeComponent
 	},
 	{
 		path: '',
-		redirectTo: '/game',
+		redirectTo: '/home',
 		pathMatch: 'full'
 	}
 ];

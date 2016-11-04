@@ -25,11 +25,11 @@ export class GameService {
 		});
 
 		this.getPlayerData();
-	 }
+	}
 
 	getPlayerStore(): Observable<any> {
-		 return this.playerStore;
-	 }
+		return this.playerStore;
+	}
 
 	getTiles(): Array<GameTile> {
 		return [
