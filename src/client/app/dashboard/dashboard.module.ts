@@ -11,6 +11,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { playerReducer } from './reducers/player.reducer';
+import { mapReducer } from './reducers/map.reducer';
 import { PlayerEffectsService } from './services/player-effects.service';
 import { DashboardRoutingModule } from './dashboard.routing';
 import { DashboardComponent } from './dashboard.component';
@@ -26,7 +27,8 @@ import { GameService } from './services/game.service';
 
 
 const appReducers: any = {
-	player: playerReducer
+	player: playerReducer,
+	map: mapReducer
 }
 
 

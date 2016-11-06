@@ -7,7 +7,8 @@ import 'rxjs/add/operator/catch';
 
 import { GameTile } from '../models/gameTile';
 import { PlayerModel } from '../models/playerModel';
-import { GET_PLAYER_DATA } from '../reducers/player.reducer';
+import { MapModel } from '../models/mapModel';
+import { GET_PLAYER_DATA, GET_MAP_DATA } from '../reducers/player.reducer';
 
 @Injectable()
 export class GameService {
@@ -15,6 +16,8 @@ export class GameService {
 	private playerUrl = 'http://localhost:3000/api/player';
 	playerStore: Observable<any>;
 	playerData: PlayerModel;
+	mapStore: Observable<any>;
+	mapData: MapModel;
 
 
 
@@ -23,6 +26,8 @@ export class GameService {
 		this.playerStore.subscribe(data => {
 			this.playerData = data;
 		});
+
+		this.mapStore = store.select('map');
 
 		this.getPlayerData();
 	}
@@ -73,6 +78,7 @@ export class GameService {
 
 	getPlayerData() {
 		this.store.dispatch({ type: GET_PLAYER_DATA });
+		this.store.dispatch({ type: GET_MAP_DATA });
 	}
 
 	// getPlayerData(): Observable<PlayerModel> {

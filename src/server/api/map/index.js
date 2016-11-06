@@ -6,7 +6,7 @@ var router = express.Router();
 
 //router.get('/:search', controller.index);
 
-router.get('/:id', getMapData);
+router.get('/', getMapData);
 
 
 module.exports = router;
@@ -14,6 +14,7 @@ module.exports = router;
 function getMapData(req, res) {
     let playerId = req.params.id;
     res.send(response);
+
 }
 
 

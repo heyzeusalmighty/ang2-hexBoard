@@ -33,3 +33,16 @@ export class ShipComponent {
     initiative: number;
     imageUrl: string;
 }
+
+export class ShipStats {
+    computers: number;
+    drive: number;
+    hullPoints: number;
+    initiative: number;
+    orangeDice: number;
+    powerAvailable: number;
+    powerConsumption: number;
+    redDice: number;
+    shields: number;
+    yellowDice: number;
+}

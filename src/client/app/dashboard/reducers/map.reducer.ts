@@ -1,28 +1,25 @@
 import { ActionReducer, Action } from '@ngrx/store';
 import 'rxjs/add/operator/map';
 
-import { PlayerModel } from '../models/playerModel';
+import { MapModel } from '../models/mapModel';
 
 
-
-export const GET_PLAYER_DATA = 'GET_PLAYER_DATA';
-export const GET_PLAYER_DATA_SUCCESS = 'GET_PLAYER_DATA_SUCCESS';
-export const GET_PLAYER_DATA_FAILED = 'GET_PLAYER_DATA_FAILED'; 
+ 
 
 export const GET_MAP_DATA = 'GET_MAP_DATA';
 export const GET_MAP_DATA_SUCCESS = 'GET_MAP_DATA_SUCCESS';
 export const GET_MAP_DATA_FAILED = 'GET_MAP_DATA_FAILED';
 
 
-let initialState = new PlayerModel();
+let initialState = new MapModel();
 
-export const playerReducer : ActionReducer<PlayerModel> = ( state = initialState, action: Action ) => {
+export const mapReducer : ActionReducer<MapModel> = ( state = initialState, action: Action ) => {
 	switch (action.type) {
-		case GET_PLAYER_DATA_SUCCESS:
+		case GET_MAP_DATA_SUCCESS:
 			state = action.payload;
 			return state;
 
-		case GET_PLAYER_DATA_FAILED:
+		case GET_MAP_DATA_FAILED:
 			console.log('oh crap, player data failed');
 			return state;
 
