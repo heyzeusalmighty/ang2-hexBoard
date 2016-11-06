@@ -9,21 +9,26 @@ export const GET_PLAYER_DATA = 'GET_PLAYER_DATA';
 export const GET_PLAYER_DATA_SUCCESS = 'GET_PLAYER_DATA_SUCCESS';
 export const GET_PLAYER_DATA_FAILED = 'GET_PLAYER_DATA_FAILED'; 
 
+export const GET_MAP_DATA = 'GET_MAP_DATA';
+export const GET_MAP_DATA_SUCCESS = 'GET_MAP_DATA_SUCCESS';
+export const GET_MAP_DATA_FAILED = 'GET_MAP_DATA_FAILED';
+
+
 let initialState = new PlayerModel();
 
 export const playerReducer : ActionReducer<PlayerModel> = ( state = initialState, action: Action ) => {
-    switch (action.type) {
-        case GET_PLAYER_DATA_SUCCESS:
-            state = action.payload;
-            return state;
+	switch (action.type) {
+		case GET_PLAYER_DATA_SUCCESS:
+			state = action.payload;
+			return state;
 
-        case GET_PLAYER_DATA_FAILED:
-            console.log('oh crap, player data failed');
-            return state;
+		case GET_PLAYER_DATA_FAILED:
+			console.log('oh crap, player data failed');
+			return state;
 
-        default:
-            return state;
-    }
+		default:
+			return state;
+	}
 }
 
 

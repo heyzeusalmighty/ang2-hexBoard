@@ -16,6 +16,7 @@ import { Actions, Effect } from '@ngrx/effects';
 export class PlayerEffectsService {
 
 	private playerUrl = 'http://localhost:3000/api/player';
+	private mapUrl = 'http://localhost:3000/api/map';
 	private headers		= new Headers({ 'Content-Type': 'application/json' });
 	private options		= new RequestOptions({ headers: this.headers });
 
@@ -27,5 +28,12 @@ export class PlayerEffectsService {
 		.switchMap(payload => this.http.get(this.playerUrl))
 			.map( res => ({ type: 'GET_PLAYER_DATA_SUCCESS', payload: res.json() }))
 			.catch(() => Observable.of({ type: 'GET_PLAYER_DATA_FAILED'}));
+
+	@Effect() loadMapData$ = this.actions$
+		.ofType('GET_MAP_DATA')
+		.map(action => JSON.stringify(action.payload))
+		.switchMap(payload => this.http.get(this.mapUrl))
+			.map(res => ({ type: 'GET_MAP_DATA_SUCCESS', payload: res.json() }))
+			.catch(() => Observable.of({ type: 'GET_MAP_DATA_FAILED'}));
 
 }

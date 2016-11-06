@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Rx';
 import { GameService } from './services/game.service';
 
 @Component({
@@ -10,15 +11,21 @@ import { GameService } from './services/game.service';
 })
 export class DashboardComponent implements OnInit {
 
-	constructor(private router: Router, private route: ActivatedRoute) { }
+	playerStore: Observable<any>;
+	playerData: Observable<any>;
+
+	constructor(
+		private router: Router, 
+		private route: ActivatedRoute,
+		private gameService: GameService) { }
 
 	ngOnInit() {
+		this.playerStore = this.gameService.getPlayerStore();
+		this.playerStore.subscribe(data => {
+			this.playerData = data;
+		});
 	}
 
-	sideLinkPress(link: string) {
-
-		console.log('route => ', this.route, ' => ', link);
-		this.router.navigate(['../' + link], { relativeTo: this.route });
-	}
+	
 
 }

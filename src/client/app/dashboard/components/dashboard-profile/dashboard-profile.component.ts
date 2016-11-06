@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
 	selector: 'dashboard-profile',
-	template: ` <h1> I AM PROFILE </h1>`,
-	styles: [``]
+	templateUrl: './dashboard-profile.html',
+	styleUrls: ['./dashboard-profile.css']
     
 })
 export class DashboardProfileComponent implements OnInit {

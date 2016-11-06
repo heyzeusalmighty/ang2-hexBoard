@@ -33,7 +33,8 @@ import { DashboardComponent } from './dashboard.component';
 					},
 					{
 						path: '',
-						component: DashboardMapComponent
+						component: DashboardMapComponent,
+						pathMatch: 'full'
 					}
 				]
 

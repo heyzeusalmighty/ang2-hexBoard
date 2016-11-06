@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
 	selector: 'dashboard-science',
-	template: ` <h1> I AM SCIENCE </h1>`,
-	styles: [``]
+	templateUrl: './dashboard-science.html',
+	styleUrls: ['./dashboard-science.css']
     
 })
 export class DashboardScienceComponent implements OnInit {
