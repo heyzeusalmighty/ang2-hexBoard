@@ -3,7 +3,8 @@
  [ngClass]="{'even': (column + 1) % 2 == 0}"
  -->
 
-<!--<div class="hex" *ngIf="(column + 1) % 2 == 1" (click)="hexClick()">
+<!--
+<div class="hex" *ngIf="(column + 1) % 2 == 1" (click)="hexClick()">
 	<div class="left" 
 		[style.border-right-color]="color"
 		[style.border-right-width]="sideWidthString"
@@ -45,7 +46,8 @@
 		[style.border-bottom-width]="topBottomString">
 
 	</div>
-</div>-->
+</div>
+-->
 
 
 
@@ -55,22 +57,25 @@
 	[style.margin-bottom]="negMarginBottom"
 	 (click)="hexClick()">	
 	<div class="left"
-		[style.border-right-color]="tile.color"
+		[style.border-right-color]="hexColor"
 		[style.border-right-width]="sideWidthString"
 		[style.border-top-width]="topBottomString"
 		[style.border-bottom-width]="topBottomString">
 	</div>
 	<div class="middle" 
-		[style.background]="tile.color"
+		[style.background]="hexColor"
 		[style.width]="middleWidth"
-		[style.height]="middleHeight">	
-		{{tile.occupied}}
+		[style.height]="middleHeight">
+
+		<div class="division" *ngIf="showDivision" [style.color]="divisionColor">
+			{{ tile.division }}
+		</div>
+
 	</div>
 	<div class="right" 
-		[style.border-left-color]="tile.color"
+		[style.border-left-color]="hexColor"
 		[style.border-left-width]="sideWidthString"
 		[style.border-top-width]="topBottomString"
 		[style.border-bottom-width]="topBottomString">
-
 	</div>
 </div>

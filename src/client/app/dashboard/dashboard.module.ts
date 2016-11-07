@@ -7,6 +7,8 @@ import { MdInputModule } from '@angular2-material/input';
 import { MdListModule } from '@angular2-material/list';
 import { MdTabsModule } from '@angular2-material/tabs';
 import { MdMenuModule } from '@angular2-material/menu';
+import { MdTooltipModule } from '@angular2-material/Tooltip';
+import { MdSlideToggleModule } from '@angular2-material/slide-toggle';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -43,6 +45,8 @@ const appReducers: any = {
 		MdInputModule.forRoot(),
 		MdListModule.forRoot(),
 		MdMenuModule.forRoot(),
+		MdSlideToggleModule.forRoot(),
+		MdTooltipModule.forRoot(),
 		StoreModule.provideStore(appReducers),
 		EffectsModule.run(PlayerEffectsService), 
 	],

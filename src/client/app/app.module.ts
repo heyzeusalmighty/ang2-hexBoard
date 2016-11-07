@@ -8,6 +8,7 @@ import { MdInputModule } from '@angular2-material/input';
 import { MdListModule } from '@angular2-material/list';
 import { MdTabsModule } from '@angular2-material/tabs';
 import { MdMenuModule } from '@angular2-material/menu';
+import { MdSlideToggleModule } from '@angular2-material/slide-toggle';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -41,6 +42,7 @@ import { HomeComponent } from './home/home.component';
 		MdInputModule.forRoot(),
 		MdListModule.forRoot(),
 		MdMenuModule.forRoot(),		
+		MdSlideToggleModule.forRoot(),
 		DashboardModule
 	],
 	providers: [],

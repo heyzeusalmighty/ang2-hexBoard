@@ -27,12 +27,17 @@
 <!-- WORKING WITH MATRIX -->
 <div class="whole-thing">
 	<div *ngIf="showGrid">
+
+		<md-slide-toggle [(ngModel)]="showDivisions">
+			Show Divisions
+		</md-slide-toggle>
+
 		<div class="hex-row" *ngFor="let col of matrix; let i = index; trackBy: trackRow">
 			<app-hex-tile *ngFor="let row of col; let x = index" 
-				
 				[tile]="row"
 				[sideWidth]="sideWidth"
 				[topBottomWidth]="topBottomWidth"
+				[showDivision]="showDivisions"
 				(hexSelected)="hexSelected($event)"></app-hex-tile>
 		</div>
 	</div>

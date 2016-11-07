@@ -13,6 +13,10 @@ export class PlayerBarComponent implements OnInit {
 
 	playerStore: Observable<any>;
 	playerData: Observable<PlayerModel> = null;
+
+	mapStore: Observable<any>;
+	mapData: Observable<any>;
+
 	status: Observable<any>;
 	totalDiscs: Array<any> = [];
 	// usedDiscs: Array<any> = [];
@@ -43,6 +47,9 @@ export class PlayerBarComponent implements OnInit {
 
 			}
 		});
+
+		this.mapStore = this.gameService.getMapStore();
+		this.mapStore.subscribe(data => this.mapData = data);
 	}
 
 }

@@ -50,8 +50,19 @@
 			<money-box colorClass="gl_brown" [amount]="3"></money-box>
 		</div>
 	</div>
-	<div class="mdl-cell mdl-cell--3-col">
-		tiles left
+	<div class="mdl-cell mdl-cell--3-col" md-tooltip="tiles remaining per region" tooltip-position="below">
+		<table >
+			<tr>
+				<th>INNER</th>
+				<th>MIDDLE</th>
+				<th >OUTER</th>
+			</tr>
+			<tr>
+				<td>{{mapData.counts.divisionOne}} </td>
+				<td>{{mapData.counts.divisionTwo}} </td>
+				<td>{{mapData.counts.divisionThree}} </td>
+			</tr>
+		</table>
 	</div>
 	<div class="mdl-cell mdl-cell--3-col">
 		colony ships

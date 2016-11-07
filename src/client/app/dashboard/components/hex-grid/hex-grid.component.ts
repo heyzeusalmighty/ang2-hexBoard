@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 import { GameTile } from '../../models/gameTile';
+import { MapTile } from '../../models/mapTile';
 import { GameService } from '../../services/game.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class HexGridComponent implements OnInit {
 	// columns = new Array(11);
 	// rows = new Array(8);
 	hexColor = '#6C6';
-	gameTiles: Array<GameTile>;
+	gameTiles: Array<MapTile>;
 	matrix: Array<any>;
 	// 1300 pixels
 	sideWidth: number = 30;
@@ -24,6 +25,7 @@ export class HexGridComponent implements OnInit {
 	selectedHex: string;
 	showGrid: boolean = true;
 	anyErrors: boolean = false;
+	showDivisions: boolean = false;
 
 	playerStore: Observable<any>;
 	playerData: Observable<any>;
@@ -38,38 +40,26 @@ export class HexGridComponent implements OnInit {
 
 	ngOnInit() {
 		this.calculateScreenSize();
-		this.getStartingData();
+		this.getStartingData();		
+		// this.buildArray(); 
 	}
 
 	getStartingData() {
-		// this.gameTiles = this.gameService.getTiles();
 		
-		// this.playerStore = this.gameService.getPlayerStore();
-		// this.playerStore.subscribe(data => {
-		// 	this.playerData = data;
-		// });
-
 		this.gameStore = this.gameService.getMapStore();
 		this.gameStore.subscribe(
 			data => {
 				this.gameData = data;
 				this.gameTiles = data.mapTiles;
-				// this.buildArray();
-				console.log('tiles', this.gameTiles);	
+				console.log('data', data);
+				if (data.mapTiles.length > 0) {
+					this.addGameTilesToMatrix();
+				}	
 			},
 			error => this.anyErrors = true,
-			() => {
-				this.buildArray(); 
-				console.log('kaboom'); 
-			}
+			() => console.log('kaboom, observable finished cleanly')
 		);
-		
 
-
-		// this.gameService.getPlayerData()
-		// 	.subscribe(
-		// 		data => this.playerData = data
-		// 	)
 	}
 
 	trackRow(index: number): number {
@@ -81,7 +71,7 @@ export class HexGridComponent implements OnInit {
 		for ( let row = 0; row < this.rowCount; row++) {
 			let wholeRow = new Array<GameTile>();
 			for (let col = 0; col < this.columnCount; col++ ) {
-				wholeRow.push({ xCoord: col, yCoord: row, color: '#6C6' });
+				wholeRow.push({ x: col, y: row, color: '#6C6' });
 			}
 			this.matrix.push(wholeRow);
 		}
@@ -90,14 +80,27 @@ export class HexGridComponent implements OnInit {
 	}
 
 	addGameTilesToMatrix() {
+		this.matrix = [];
+		for ( let row = 0; row < this.rowCount; row++) {
+			let wholeRow = new Array<MapTile>();
+			for (let col = 0; col < this.columnCount; col++ ) {
+				// wholeRow.push({ x: col, y: row });
+				let div = this.whatDivAmI(col, row);
+				let tile = new MapTile(col, row);
+				tile.division = div;
+				wholeRow.push(tile);
+			}
+			this.matrix.push(wholeRow);
+		}
+
 		this.gameTiles.forEach(tile => {
-			this.matrix[tile.yCoord][tile.xCoord].color = tile.color;
+			// console.log(tile)
+			this.matrix[tile.y][tile.x].occupied = tile.occupied;
 		});
 	}
 
 	calculateScreenSize() {
 		let width = window.innerWidth;
-		console.log('inner width ', width, (width - 140));
 		// side drawer is 120 plus 16px padding
 		let actualWidth = width - 140;
 
@@ -110,24 +113,57 @@ export class HexGridComponent implements OnInit {
 		this.sideWidth = hexWidth * ratio;
 		this.topBottomWidth = hexHeight * ratio;
 		
-
-		// if (width >= 1300) {
-		// 	// 30 - 52
-		// 	this.sideWidth = 22.5;
-		// 	this.topBottomWidth = 39;
-		// } else {
-		// 	// let ratio = width / 1300;
-		// 	// this.sideWidth = 30 * ratio;
-		// 	// this.topBottomWidth = 52 * ratio;
-		// 	this.sideWidth = 22.5;
-		// 	this.topBottomWidth = 39;
-		// }
 	}
 
 	hexSelected($event) {
 		console.log('event', $event);
 		this.selectedHex = $event.value;
 		this.showGrid = false;
+	}
+
+
+
+	whatDivAmI(x, y) {
+
+		if (x < 4 || x > 8 || y < 3 || y > 7) {
+			return 3;
+		}
+
+		switch (x) {
+			case 4:
+			case 8:
+				if (y < 4 || y > 6) {
+					return 3;
+				} else {
+					return 2;
+				}
+				
+			case 5:
+			case 7:
+				if (y < 3 || y > 6) {
+					return 3;
+				} else if (y === 3 || y === 6) {
+					return 2;
+				} else {
+					return 1;
+				}
+				
+
+			case 6:
+				if (y < 3 || y > 7) {
+					return 3;
+				} else if (y === 3 || y === 7) {
+					return 2;
+				} else if (y === 4 || y === 6) {
+					return 1;
+				} else {
+					return 0;
+				}
+				
+			default:
+				console.warn('div not found', x, y);
+		}
+		return null;
 	}
 
 }

@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
 	playerData: Observable<any>;
 	gameStore: Observable<any>;
 	gameData: Observable<any>;
-
+	
 	constructor(
 		private router: Router, 
 		private route: ActivatedRoute,

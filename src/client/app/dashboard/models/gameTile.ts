@@ -1,5 +1,5 @@
 export class GameTile {
-	xCoord: number;
-	yCoord: number;
+	x: number;
+	y: number;
 	color: string;
 }
