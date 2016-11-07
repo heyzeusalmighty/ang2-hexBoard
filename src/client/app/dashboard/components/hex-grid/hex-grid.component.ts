@@ -23,9 +23,13 @@ export class HexGridComponent implements OnInit {
 	topBottomWidth: number = 52;
 	selectedHex: string;
 	showGrid: boolean = true;
+	anyErrors: boolean = false;
 
 	playerStore: Observable<any>;
 	playerData: Observable<any>;
+	gameStore: Observable<any>;
+	gameData: Observable<any>;
+
 
 
 
@@ -38,13 +42,28 @@ export class HexGridComponent implements OnInit {
 	}
 
 	getStartingData() {
-		this.gameTiles = this.gameService.getTiles();
-		this.buildArray();
-		this.playerStore = this.gameService.getPlayerStore();
-		this.playerStore.subscribe(data => {
-			this.playerData = data;
-		});
+		// this.gameTiles = this.gameService.getTiles();
+		
+		// this.playerStore = this.gameService.getPlayerStore();
+		// this.playerStore.subscribe(data => {
+		// 	this.playerData = data;
+		// });
 
+		this.gameStore = this.gameService.getMapStore();
+		this.gameStore.subscribe(
+			data => {
+				this.gameData = data;
+				this.gameTiles = data.mapTiles;
+				// this.buildArray();
+				console.log('tiles', this.gameTiles);	
+			},
+			error => this.anyErrors = true,
+			() => {
+				this.buildArray(); 
+				console.log('kaboom'); 
+			}
+		);
+		
 
 
 		// this.gameService.getPlayerData()
@@ -67,6 +86,10 @@ export class HexGridComponent implements OnInit {
 			this.matrix.push(wholeRow);
 		}
 
+		
+	}
+
+	addGameTilesToMatrix() {
 		this.gameTiles.forEach(tile => {
 			this.matrix[tile.yCoord][tile.xCoord].color = tile.color;
 		});

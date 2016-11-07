@@ -26,26 +26,20 @@
 
 <!-- WORKING WITH MATRIX -->
 <div class="whole-thing">
-<div *ngIf="showGrid">
-	<div class="hex-row" *ngFor="let col of matrix; let i = index; trackBy: trackRow">
-		<app-hex-tile *ngFor="let row of col; let x = index" 
-			
-			[tile]="row"
-			[sideWidth]="sideWidth"
-			[topBottomWidth]="topBottomWidth"
-			(hexSelected)="hexSelected($event)"></app-hex-tile>
+	<div *ngIf="showGrid">
+		<div class="hex-row" *ngFor="let col of matrix; let i = index; trackBy: trackRow">
+			<app-hex-tile *ngFor="let row of col; let x = index" 
+				
+				[tile]="row"
+				[sideWidth]="sideWidth"
+				[topBottomWidth]="topBottomWidth"
+				(hexSelected)="hexSelected($event)"></app-hex-tile>
+		</div>
 	</div>
-</div>
 
-<div *ngIf="!showGrid">
-	<h2>showing hex</h2>
-	<button (click)="showGrid = true">Close</button>
-	{{ selectedHex }}
-
-
-
-	<div>
-		playerData - {{ playerData.currentPlayer | json }}
+	<div *ngIf="!showGrid">
+		<h2>showing hex</h2>
+		<button (click)="showGrid = true">Close</button>
+		{{ selectedHex }}
 	</div>
-</div>
 </div>

@@ -23,9 +23,11 @@ export class GameService {
 
 	constructor(private http: Http, private store: Store<any>) {
 		this.playerStore = store.select('player');
-		this.playerStore.subscribe(data => {
-			this.playerData = data;
-		});
+		this.playerStore.subscribe(
+			data => this.playerData = data,
+			err => console.error('err ', err),
+			() => console.log('we are done here')
+		);
 
 		this.mapStore = store.select('map');
 
@@ -34,6 +36,10 @@ export class GameService {
 
 	getPlayerStore(): Observable<any> {
 		return this.playerStore;
+	}
+
+	getMapStore(): Observable<any> {
+		return this.mapStore;
 	}
 
 	getTiles(): Array<GameTile> {

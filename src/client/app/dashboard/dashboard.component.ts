@@ -13,6 +13,8 @@ export class DashboardComponent implements OnInit {
 
 	playerStore: Observable<any>;
 	playerData: Observable<any>;
+	gameStore: Observable<any>;
+	gameData: Observable<any>;
 
 	constructor(
 		private router: Router, 
@@ -24,6 +26,8 @@ export class DashboardComponent implements OnInit {
 		this.playerStore.subscribe(data => {
 			this.playerData = data;
 		});
+
+		
 	}
 
 	
