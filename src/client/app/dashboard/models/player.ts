@@ -26,6 +26,12 @@ export class Player {
     species: string;
 
     constructor() {
-        
+        this.availableColonyShips = 3;
+        this.currentOrange = 0;
+        this.currentBrown = 0;
+        this.currentPink = 0;
+        this.orangeIncome = 0;
+        this.brownIncome = 0;
+        this.pinkIncome = 0;
     }    
 }

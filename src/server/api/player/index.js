@@ -43,7 +43,7 @@ const response = {
 		"turnOrder": 1,
 		"totalDiscs": 13,
 		"availableDiscs": 9,
-		"availableColonyShips": 3,
+		"availableColonyShips": 2,
 		"passOrder": 0,
 		"whosTurn": true,
 		"exploreDiscCount": null,

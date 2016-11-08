@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Rx';
 import { PlayerModel } from '../../models/playerModel';
 import { GameService } from '../../services/game.service';
 
+import { ColonyShip } from '../../models/colonyShip';
+
 @Component({
 	selector: 'player-bar',
 	templateUrl: './player-bar.component.html',
@@ -19,6 +21,9 @@ export class PlayerBarComponent implements OnInit {
 
 	status: Observable<any>;
 	totalDiscs: Array<any> = [];
+
+	colonyShips: Array<ColonyShip>;
+	_totalShips: number = 3;
 	// usedDiscs: Array<any> = [];
 	// availableDiscs: Array<any> = [];
 
@@ -45,6 +50,17 @@ export class PlayerBarComponent implements OnInit {
 					this.totalDiscs.push({ number: i, available: (i <= usedDiscs )});
 				}
 
+			}
+
+			if(data.currentPlayer && data.currentPlayer.availableColonyShips) {
+				this.colonyShips = [];
+				for (let i = 0; i < this._totalShips; i++) {
+					let ship = new ColonyShip(i);
+					if ( (data.currentPlayer.availableColonyShips - 1) < i) {
+						ship.disabled = true;
+					}
+					this.colonyShips.push(ship);
+				}
 			}
 		});
 

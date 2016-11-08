@@ -7,7 +7,7 @@ import { MdInputModule } from '@angular2-material/input';
 import { MdListModule } from '@angular2-material/list';
 import { MdTabsModule } from '@angular2-material/tabs';
 import { MdMenuModule } from '@angular2-material/menu';
-import { MdTooltipModule } from '@angular2-material/Tooltip';
+import { MdTooltipModule } from '@angular2-material/tooltip';
 import { MdSlideToggleModule } from '@angular2-material/slide-toggle';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -25,6 +25,7 @@ import { PlayerBarComponent } from './components/player-bar/player-bar.component
 import { MoneyBoxComponent } from './components/money-box/money-box.component';
 import { HexGridComponent } from './components/hex-grid/hex-grid.component';
 import { HexTileComponent } from './components/hex-tile/hex-tile.component';
+import { ColonyShipsComponent } from './components/colony-ships/colony-ships.component';
 import { GameService } from './services/game.service';
 
 
@@ -59,7 +60,8 @@ const appReducers: any = {
 		PlayerBarComponent,
 		MoneyBoxComponent,
 		HexGridComponent,
-		HexTileComponent
+		HexTileComponent,
+		ColonyShipsComponent
 	],
 	providers: [
 		GameService
