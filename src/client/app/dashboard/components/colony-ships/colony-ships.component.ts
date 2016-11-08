@@ -5,17 +5,15 @@ import { ColonyShip } from '../../models/colonyShip';
 @Component({
 	selector: 'colony-ships',
 	// templateUrl: './colony-ships.component.html',
-	// styleUrls: ['./colony-ships.component.css']
+	styleUrls: ['./colony-ships.component.css'],
 	template: `
 		<div class="shipContainer">
-			<div *ngFor="let a of ships">
-				avail! {{ a.index }} => {{ a.disabled }}
+			<div *ngFor="let a of ships" class="ship" [class.deceased]="a.disabled">
+				<div *ngIf="a.disabled" class="deceasedBox"></div>
 			</div>
 		</div>
-	`,
-	styles: [
-		``
-	]
+	`
+	
 })
 export class ColonyShipsComponent implements OnInit {
 
