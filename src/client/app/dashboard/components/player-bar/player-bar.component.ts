@@ -24,9 +24,6 @@ export class PlayerBarComponent implements OnInit {
 
 	colonyShips: Array<ColonyShip>;
 	_totalShips: number = 3;
-	// usedDiscs: Array<any> = [];
-	// availableDiscs: Array<any> = [];
-
 
 	constructor(private gameService: GameService) { }
 
@@ -52,7 +49,7 @@ export class PlayerBarComponent implements OnInit {
 
 			}
 
-			if(data.currentPlayer && data.currentPlayer.availableColonyShips) {
+			if (data.currentPlayer && data.currentPlayer.availableColonyShips) {
 				this.colonyShips = [];
 				for (let i = 0; i < this._totalShips; i++) {
 					let ship = new ColonyShip(i);

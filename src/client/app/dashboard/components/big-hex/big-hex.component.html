@@ -1,0 +1,41 @@
+
+
+
+<!--{{tile | json}}-->
+<!--
+<div class="hex" 
+	[style.margin-top]="marginTopString"
+	[style.margin-right]="negMarginRight"
+	[style.margin-bottom]="negMarginBottom"
+	 (click)="hexClick()">	
+	<div class="left"
+		[style.border-right-color]="hexColor"
+		[style.border-right-width]="sideWidthString"
+		[style.border-top-width]="topBottomString"
+		[style.border-bottom-width]="topBottomString">
+	</div>
+	<div class="middle" 
+		[style.background]="hexColor"
+		[style.width]="middleWidth"
+		[style.height]="middleHeight">
+
+		<div class="division" *ngIf="showDivision" [style.color]="divisionColor">
+			{{ tile.division }}
+		</div>
+
+	</div>
+	<div class="right" 
+		[style.border-left-color]="hexColor"
+		[style.border-left-width]="sideWidthString"
+		[style.border-top-width]="topBottomString"
+		[style.border-bottom-width]="topBottomString">
+	</div>
+</div>
+-->
+
+<div class="hex">
+    <div class="left" [style.border-right-color]="hexColor"></div>
+    <div class="middle" [style.background]="hexColor"></div>
+    <div class="right" [style.border-left-color]="hexColor"></div>
+</div>
+    

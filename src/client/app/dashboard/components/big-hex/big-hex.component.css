@@ -1,0 +1,54 @@
+/*.hex {
+    float: left;
+}
+.hex .left {
+    float: left;
+    width: 0;   
+    border-right: 60px solid;
+    border-top: 104px solid transparent;
+    border-bottom: 104px solid transparent;
+}
+.hex .middle {
+    float: left;    
+    width: 120px;
+    height: 208px;
+}
+.hex .right {
+    float: left;
+    width: 0;
+    border-left: 60px solid;
+    border-top: 104px solid transparent;
+    border-bottom: 104px solid transparent;    
+}
+.hex-row {
+    clear: left;
+}*/
+
+
+
+
+.hex {
+    float: left;    
+}
+.hex .left {
+    float: left;
+    width: 0;   
+    border-right: 120px solid;
+    border-top: 208px solid transparent;
+    border-bottom: 208px solid transparent;
+}
+.hex .middle {
+    float: left;    
+    width: 240px;
+    height: 416px;
+}
+.hex .right {
+    float: left;
+    width: 0;
+    border-left: 120px solid;
+    border-top: 208px solid transparent;
+    border-bottom: 208px solid transparent;    
+}
+.hex-row {
+    clear: left;
+}

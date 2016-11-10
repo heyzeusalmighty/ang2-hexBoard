@@ -34,9 +34,9 @@
 	<div class="mdl-cell mdl-cell--2-col">
 		<div class="moneyContainer">
 			<span>INCOME</span>
-			<money-box colorClass="gl_orange" [amount]="3"></money-box>
-			<money-box colorClass="gl_pink" [amount]="3"></money-box>
-			<money-box colorClass="gl_brown" [amount]="3"></money-box>
+			<money-box colorClass="gl_orange" [amount]="playerData.orangeIncome"></money-box>
+			<money-box colorClass="gl_pink" [amount]="playerData.pinkIncome"></money-box>
+			<money-box colorClass="gl_brown" [amount]="playerData.brownIncome"></money-box>
 		</div>
 
 		
@@ -45,9 +45,9 @@
 	<div class="mdl-cell mdl-cell--2-col">
 		<div class="moneyContainer">
 			<span>CURRENT</span>
-			<money-box colorClass="gl_orange" [amount]="3"></money-box>
-			<money-box colorClass="gl_pink" [amount]="3"></money-box>
-			<money-box colorClass="gl_brown" [amount]="3"></money-box>
+			<money-box colorClass="gl_orange" [amount]="playerData.currentOrange"></money-box>
+			<money-box colorClass="gl_pink" [amount]="playerData.currentPink"></money-box>
+			<money-box colorClass="gl_brown" [amount]="playerData.currentBrown"></money-box>
 		</div>
 	</div>
 	<div class="mdl-cell mdl-cell--3-col" md-tooltip="tiles remaining per region" tooltip-position="below">
@@ -55,7 +55,7 @@
 			<tr>
 				<th>INNER</th>
 				<th>MIDDLE</th>
-				<th >OUTER</th>
+				<th>OUTER</th>
 			</tr>
 			<tr>
 				<td>{{mapData.counts.divisionOne}} </td>

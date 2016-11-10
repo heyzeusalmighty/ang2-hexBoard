@@ -22,7 +22,7 @@ export class HexGridComponent implements OnInit {
 	// 1300 pixels
 	sideWidth: number = 30;
 	topBottomWidth: number = 52;
-	selectedHex: string;
+	selectedHex: MapTile;
 	showGrid: boolean = true;
 	anyErrors: boolean = false;
 	showDivisions: boolean = false;

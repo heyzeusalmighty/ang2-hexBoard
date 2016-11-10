@@ -1,21 +1,24 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-import { GameTile } from '../../models/gameTile';
 import { MapTile } from '../../models/mapTile';
 
+
 @Component({
-	selector: 'app-hex-tile',
-	templateUrl: './hex-tile.component.html',
-	styleUrls: ['./hex-tile.component.css']
+	selector: 'big-hex',
+	templateUrl: './big-hex.component.html',
+	styleUrls: ['./big-hex.component.css']
 })
-export class HexTileComponent implements OnInit {
+export class BigHexComponent implements OnInit {
 
 	@Input() tile: MapTile;
 	@Input() sideWidth: number;
 	@Input() topBottomWidth: number;
 	@Input() showDivision: boolean;
-	@Output() hexSelected = new EventEmitter();
-	
+
+
+	// sideWidth: number = 30;
+	// topBottomWidth: number = 52;
+
 	sideWidthString: string;
 	topBottomString: string;
 	marginTopString: string;
@@ -25,14 +28,15 @@ export class HexTileComponent implements OnInit {
 	hexColor: string = '#6C6';
 	middleWidth = '60px';
 	middleHeight = '104px';
-	cursor = 'arrow';
 
+	constructor() {}
 
-	constructor() { }
+	ngOnInit()  {
 
-	ngOnInit() {
+		console.log('hey what sup:: ', this.sideWidth, this.topBottomWidth );
 		this.sideWidthString = this.sideWidth + 'px';
 		this.topBottomString = this.topBottomWidth + 'px';
+
 		// This is for calculating even rows
 		this.marginTopString = ((this.tile.x + 1) % 2 === 0)
 			? (this.topBottomWidth + 1) + 'px'
@@ -51,20 +55,6 @@ export class HexTileComponent implements OnInit {
 			if (this.tile.occupied === 'white' || this.tile.occupied === 'yellow' ) {
 				this.divisionColor = 'rgba(0, 0, 0, 0.5)';
 			}
-			this.cursor = 'pointer';
 		}
-
-		
 	}
-
-
-
-	hexClick() {
-		this.hexSelected.emit({ value: this.tile });
-		console.log('I got clicked :: column ', this.tile.y, ' :: row ', this.tile.x, ' :: color ', this.tile.occupied);
-	}
-
-	
-
-
 }

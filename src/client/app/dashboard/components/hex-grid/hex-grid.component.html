@@ -46,5 +46,12 @@
 		<h2>showing hex</h2>
 		<button (click)="showGrid = true">Close</button>
 		{{ selectedHex }}
+
+		<big-hex 
+			[tile]="selectedHex"		
+			[sideWidth]="sideWidth"
+			[topBottomWidth]="topBottomWidth"
+			[showDivision]="showDivisions"></big-hex>
+
 	</div>
 </div>

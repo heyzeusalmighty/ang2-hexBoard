@@ -1,14 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule }   from '@angular/common';
 import { FormsModule }    from '@angular/forms';
-import { MdButtonModule } from '@angular2-material/button';
-import { MdCardModule } from '@angular2-material/card';
-import { MdInputModule } from '@angular2-material/input';
-import { MdListModule } from '@angular2-material/list';
-import { MdTabsModule } from '@angular2-material/tabs';
-import { MdMenuModule } from '@angular2-material/menu';
-import { MdTooltipModule } from '@angular2-material/tooltip';
-import { MdSlideToggleModule } from '@angular2-material/slide-toggle';
+import { MaterialModule } from '@angular/material';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -26,13 +19,14 @@ import { MoneyBoxComponent } from './components/money-box/money-box.component';
 import { HexGridComponent } from './components/hex-grid/hex-grid.component';
 import { HexTileComponent } from './components/hex-tile/hex-tile.component';
 import { ColonyShipsComponent } from './components/colony-ships/colony-ships.component';
+import { BigHexComponent } from './components/big-hex/big-hex.component';
 import { GameService } from './services/game.service';
 
 
 const appReducers: any = {
 	player: playerReducer,
 	map: mapReducer
-}
+};
 
 
 @NgModule({
@@ -40,14 +34,7 @@ const appReducers: any = {
 		CommonModule, 
 		FormsModule,
 		DashboardRoutingModule,
-		MdButtonModule.forRoot(),
-		MdCardModule.forRoot(),
-		MdTabsModule.forRoot(),
-		MdInputModule.forRoot(),
-		MdListModule.forRoot(),
-		MdMenuModule.forRoot(),
-		MdSlideToggleModule.forRoot(),
-		MdTooltipModule.forRoot(),
+		MaterialModule.forRoot(),
 		StoreModule.provideStore(appReducers),
 		EffectsModule.run(PlayerEffectsService), 
 	],
@@ -61,7 +48,8 @@ const appReducers: any = {
 		MoneyBoxComponent,
 		HexGridComponent,
 		HexTileComponent,
-		ColonyShipsComponent
+		ColonyShipsComponent,
+		BigHexComponent
 	],
 	providers: [
 		GameService
