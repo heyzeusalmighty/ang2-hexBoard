@@ -29,13 +29,7 @@ export class ColonyShipsComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		// for (let i = 0; i < this._totalShips; i++) {
-		// 	let ship = new ColonyShip(i);
-		// 	if ( (this.available - 1) < i) {
-		// 		ship.disabled = true;
-		// 	}
-		// 	this.availableShips.push(ship);
-		// }
+		
 	}
 }
 

@@ -26,6 +26,7 @@ export class HexTileComponent implements OnInit {
 	middleWidth = '60px';
 	middleHeight = '104px';
 	cursor = 'arrow';
+	victoryPoints: string = '';
 
 
 	constructor() { }
@@ -52,6 +53,7 @@ export class HexTileComponent implements OnInit {
 				this.divisionColor = 'rgba(0, 0, 0, 0.5)';
 			}
 			this.cursor = 'pointer';
+			this.victoryPoints = this.tile.victoryPoints.toString();
 		}
 
 		

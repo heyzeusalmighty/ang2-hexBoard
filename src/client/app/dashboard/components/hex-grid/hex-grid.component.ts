@@ -18,6 +18,7 @@ export class HexGridComponent implements OnInit {
 	// rows = new Array(8);
 	hexColor = '#6C6';
 	gameTiles: Array<MapTile>;
+	ships: Array<any>;
 	matrix: Array<any>;
 	// 1300 pixels
 	sideWidth: number = 30;
@@ -51,10 +52,15 @@ export class HexGridComponent implements OnInit {
 			data => {
 				this.gameData = data;
 				this.gameTiles = data.mapTiles;
+				this.ships = data.ships;
 				console.log('data', data);
 				if (data.mapTiles.length > 0) {
 					this.addGameTilesToMatrix();
 				}	
+
+				if (data.ships.length > 0) {
+					this.addShipsToMapTiles();
+				}
 			},
 			error => this.anyErrors = true,
 			() => console.log('kaboom, observable finished cleanly')
@@ -95,7 +101,15 @@ export class HexGridComponent implements OnInit {
 
 		this.gameTiles.forEach(tile => {
 			// console.log(tile)
-			this.matrix[tile.y][tile.x].occupied = tile.occupied;
+			// this.matrix[tile.y][tile.x].occupied = tile.occupied;
+			this.matrix[tile.y][tile.x] = tile;
+		});
+	}
+
+	addShipsToMapTiles() {
+		this.ships.forEach(ship => {
+			//console.info(ship.xCoords, ship.yCoords);
+			this.matrix[ship.yCoords][ship.xCoords].hasShips = true;
 		});
 	}
 

@@ -72,6 +72,14 @@
 			{{ tile.division }}
 		</div>
 
+		<div class="victory">
+			{{ victoryPoints }}
+		</div>
+
+		<div class="shippy" *ngIf="tile.hasShips">
+			<img src="assets/images/rocket-white-x100.png" />
+		</div>
+
 	</div>
 	<div class="right" 
 		[style.border-left-color]="hexColor"

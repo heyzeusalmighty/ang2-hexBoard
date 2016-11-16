@@ -25,6 +25,7 @@ export class MapTile {
 	wormholes: Array<number>;
 	x: number;
 	y: number;
+	hasShips: boolean;
 
 	constructor(xCoord: number, yCoord: number) {
 		this.x = xCoord;
